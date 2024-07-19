@@ -56,7 +56,6 @@ class MainViewModel(application: Application):AndroidViewModel(application) {
     }
 
     fun isValidName(name: String): Boolean {
-        // Name sollte nicht leer sein und keine Zahlen oder Sonderzeichen enthalten
         return name.isNotBlank() && name.matches(Regex("^[\\p{L} .'-]+$"))
     }
 

@@ -87,7 +87,6 @@ class AddFragment : Fragment() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // Optional: Setzen Sie hier einen Standardwert, falls nichts ausgewählt wurde
                 selectedGenre = ""
             }
         }
