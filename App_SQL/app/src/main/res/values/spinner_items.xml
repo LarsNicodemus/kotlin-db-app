@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_items">
+        <item>Fantasy</item>
+        <item>Sci-Fi</item>
+        <item>Romance</item>
+        <item>Self Growth</item>
+        <item>Adventure</item>
+        <item>Mystery</item>
+        <item>Thriller</item>
+        <item>Horror</item>
+    </string-array>
+</resources>
