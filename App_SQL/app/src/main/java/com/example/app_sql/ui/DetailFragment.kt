@@ -67,10 +67,11 @@ class DetailFragment : Fragment() {
         binding.switchIsreading.isChecked = book.isReading
         binding.switchWanttoread.isChecked = book.wantToRead
 
-        // Setze die OnCheckedChangeListener
+
         binding.switchFinished.setOnCheckedChangeListener { _, isChecked ->
             binding.switchIsreading.isChecked = false
             binding.switchWanttoread.isChecked = false
+            book.finished = isChecked
             viewModel.updateBook(book)
         }
 
