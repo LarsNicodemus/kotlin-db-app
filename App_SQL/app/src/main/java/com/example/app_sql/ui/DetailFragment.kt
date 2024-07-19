@@ -31,26 +31,29 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val actualBook = viewModel.getBookById(args.bookID)
-        actualBook.observe(viewLifecycleOwner) { book ->
+        viewModel.getBookById(args.bookID).observe(viewLifecycleOwner) { book ->
             if (book != null) {
-                    updateUI(book)
-                    setupRatingBar(book)
+                updateUI(book)
+                setupRatingBar(book)
                 binding.btnEdit.setOnClickListener {
                     viewModel.updateBook(book)
                     findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToMainFragment())
                     Log.d("DetailFragment", "Updating book with new rating: $book")
                 }
             }
-        binding.btnDelete.setOnClickListener {
-            viewModel.deleteBook(book)
-            findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToMainFragment())
 
-        }
         }
         binding.btnCancel.setOnClickListener {
             findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToMainFragment())
         }
+        viewModel.getBookById(args.bookID).observe(viewLifecycleOwner) { book ->
+            binding.btnDelete.setOnClickListener {
+                viewModel.deleteBook(book)
+                findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToMainFragment())
 
+            }
+
+        }
     }
 
     private fun updateUI(book: BookData) {

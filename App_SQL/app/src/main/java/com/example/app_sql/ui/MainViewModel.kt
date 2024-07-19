@@ -17,6 +17,9 @@ class MainViewModel(application: Application):AndroidViewModel(application) {
 
     val books = repository.bookList
 
+    init {
+        prepopulateDatabase()
+    }
 
     fun insertBook(book: BookData) {
         viewModelScope.launch {
